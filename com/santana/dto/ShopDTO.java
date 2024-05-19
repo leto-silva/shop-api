@@ -23,7 +23,14 @@ public class ShopDTO {
 		shopDTO.setIdentifier(shop.getIdentifier());
 		shopDTO.setDateShop(shop.getDateShop());
 		shopDTO.setStatus(shop.getStatus());
+		shopDTO.setItems( shop
+				.getItems()
+				.stream()
+				.map(i ->
+				ShopItemDTO.convert(i))
+				.collect(Collectors.toList()));
 		
+		return shopDTO;
 		
 	}
 

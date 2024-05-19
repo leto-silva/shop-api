@@ -5,10 +5,12 @@ import lombok.Setter;
 
 import javax.peristence.*;
 
+import com.santana.dto.ShopDTO;
+
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.OneToMany;
 
-//import com.santana.dto.ShopDTO;
+
 
 import java.time.LocalDate;
 import java.util.List;
@@ -28,14 +30,13 @@ public class Shop {
 	private String status;
 	
 	@Column(name = "date_shop")
-	private LocalDate dateshop;
+	private LocalDate dateShop;
 	
 	@OneToMany(fetch = FetchType.EAGER,
 			cascade = CascadeType.ALL,
 			mappedBy = "shop")
 	private List<ShopItem> items;
 	
-	/*
 	  
 	public static Shop convert(ShopDTO shopDTO) {
 	
@@ -46,18 +47,12 @@ public class Shop {
 		shop.setItems(shopDTO
 			.getItems()
 			.stream()
-			.map(i -> ShopItem.convert(i))
+			.map(i -> 
+			ShopItem.convert(i))
 			.collect(Collectors.toList()));
 		return shop;
 		
-	
-	
 	}
 	  
-	  
-	 */
-	
-	
-	
 	
 }
