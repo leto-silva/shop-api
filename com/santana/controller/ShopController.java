@@ -12,15 +12,15 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 
-
+@Service
 @RestController
-@RequestMapping("/shop")
+@RequestMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 @RequireArgsConstructor
 public class ShopController {
 	
 	private final ShopRepository shopRepository;
 	
-	@GetMapping
+	@GetMapping("/shop")
 	public List<ShopDTO> getShop() {
 		return shopRepository
 				.findAll()
